@@ -1,13 +1,14 @@
 <?php
+/*
+Keny Dutton-Gillespie + Cherie Menchaca
+April 10, 2022
+http://menchaca.cherie.greenriverdev.com/328/cupcakes/process.php
+This program allows you to order from a selection of cupcakes and will print
+out an order summary with a total.
 
+*/
 // Initialize variables
 $name = "";
-
-function getFlavors()
-{
-    $flavor = array('grasshopper', 'whiskey_maple_bacon','carrot_walnut','salted_caramel_cupcake', 'red_velvet', 'lemon_drop', 'tiramisu');
-    return $flavor;
-}
 
 ?>
 
@@ -20,32 +21,22 @@ function getFlavors()
 <body>
 <h1>Cupcake Fundraiser</h1>
 
+<!-- Start of form -->
 <form id="cupcake-form" action="process.php" method="post">
-    <fieldset class="form-group">
-        <legend>Your name:</legend>
+
+    <!--Name input -->
+    <div>
         <div class="form-group">
+            <h4>Your name:</h4>
             <input type="text" name="name" value="<?php echo $name ?>" class="form-control" placeholder="Please input your name."
                    id="name">
         </div>
-    </fieldset>
+        <br>
 
-    <fieldset class="form-group form-row col-6">
-        <legend class>Cupcake Flavors</legend>
-        <div class="form-group form-check">
-            <label class="form-check-label form-label">
-
-
-                <?php
-
-                $toppings = getToppings();
-                foreach($toppings as $topping){
-                    echo "
-                    <input type='checkbox' class='form-check-input' 
-                    value='$flavor' name='flavors[]'>".ucfirst($topping).
-                        "</label>
-            </div>";
-                }
-                ?>
+        <!-- Flavor selection -->
+        <div>
+            <h4>Cupcake Flavors</h4>
+            <div class="form-group form-check">
                 <input class="form-check-input" type="checkbox" name="flavor[]" id="grasshopper" value="Grasshopper">
                 <label class="form-check-label" for="grasshopper">The Grasshopper</label>
 
@@ -69,13 +60,14 @@ function getFlavors()
 
                 <input class="form-check-input" type="checkbox" name="flavor[]" id="tiramisu" value="Tiramisu">
                 <label class="form-check-label" for="tiramisu">Tiramisu</label>
-            </label>
+            </div>
         </div>
+        <br>
+        <!-- Submit button -->
         <div>
             <input type="submit" value="Order">
-
         </div>
-    </fieldset>
+    </div>
 </form>
 </body>
 </html>
